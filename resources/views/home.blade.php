@@ -7,6 +7,6 @@
     <title>Home Interface</title>
 </head>
 <body>
-    <H1>INI HALAMAN HOME</H1>
+    <H1>INI HOME</H1>
 </body>
 </html>
