@@ -11,20 +11,23 @@
 |
 */
 
-Route::get('/', function () {
-    return view('layouts/master');
-});
+// Route::get('/', function () {
+//     return view('layouts/master');
+// });
 
-Route::get('/welcome', function () {
-    return view('welcome');
-});
+// Route::get('/welcome', function () {
+//     return view('welcome');
+// });
 
-Route::get('/hello', function () {
-    return "Hello World";
-});
+// Route::get('/hello', function () {
+//     return "Hello World";
+// });
 
-Route::get('/belajarView', function () {
-    return view('belajarView');
-});
+// Route::get('/belajarView', function () {
+//     return view('belajarView');
+// });
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
+Route::get('/karyawan', 'KaryawanController@index');
+Route::get('/jabatan', 'JabatanController@index');
+Route::get('/departement', 'DepartementController@index');
