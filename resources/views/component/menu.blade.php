@@ -29,6 +29,16 @@
                     <i class="fa fa-th"></i> <span>Jabatan</span>
                 </a>
             </li>
+            <li>
+                <a href="/arsip">
+                    <i class="fa fa-th"></i> <span>Arsip</span>
+                </a>
+            </li>
+            <li>
+                <a href="/inventori">
+                    <i class="fa fa-th"></i> <span>inventori</span>
+                </a>
+            </li>
         </ul>
     </section>
     <!-- /.sidebar -->

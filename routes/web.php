@@ -31,3 +31,6 @@ Route::get('/', 'HomeController@index');
 Route::get('/karyawan', 'KaryawanController@index');
 Route::get('/jabatan', 'JabatanController@index');
 Route::get('/departement', 'DepartementController@index');
+
+Route::get('/arsip','ArsipController@index');
+Route::get('/inventori','InventoriController@index');

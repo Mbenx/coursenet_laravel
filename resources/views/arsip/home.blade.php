@@ -2,20 +2,19 @@
 
 
 @section('title')
-<title>Web Course | Home</title>
+<title>Web Course | Arsip</title>
 @endsection
 
 @section('content-header')
 <section class="content-header">
-    {!! $unescaped !!}
     <h1>
         Dashboard
-        <small>Homepage</small>
+        <small>Arsip</small>
     </h1>
 
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li class="active">Arsip</li>
     </ol>
 </section>
 @endsection

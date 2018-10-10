@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Karyawan;
 
 class KaryawanController extends Controller
 {
@@ -30,5 +31,25 @@ class KaryawanController extends Controller
         //dd($pegawai);
 
         return view('karyawan/home',['data' => $pegawai]);
+    }
+
+    public function create(){
+
+    }
+
+    public function store(){
+        // Eloquent ORM
+
+        // insert biasa
+        // $karyawan = new Karyawan;
+        // $karyawan->nama_karyawan = 'Herlambang';
+        // $karyawan->jabatan = '1';
+        // $karyawan->save();
+
+        // mass assigment
+        Karyawan::create([
+        'nama_karyawan' => 'Herlambang',
+        'tlpn' => '012892109821',
+        ]);
     }
 }
