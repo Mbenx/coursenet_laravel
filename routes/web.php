@@ -28,7 +28,13 @@
 // });
 
 Route::get('/', 'HomeController@index');
+//Route::get('/{id}/{name}', 'HomeController@show');
+
 Route::get('/karyawan', 'KaryawanController@index');
+Route::get('/karyawan/{id}', 'KaryawanController@show');
+Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
+Route::get('/karyawan/delete/{id}', 'KaryawanController@delete');
+
 Route::get('/jabatan', 'JabatanController@index');
 Route::get('/departement', 'DepartementController@index');
 

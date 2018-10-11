@@ -2,23 +2,23 @@
 
 
 @section('title')
-<title>Web Course | Home</title>
+<title>Web Course | Karyawan</title>
 @endsection
 
 @section('content-header')
 <section class="content-header">
-    {!! $unescaped !!}
     <h1>
         Dashboard
-        <small>Homepage</small>
+        <small>Karyawan</small>
     </h1>
-
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Dashboard</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Karyawan</li>
     </ol>
 </section>
 @endsection
+
 @section('content')
-   <h1> {{ $data }} </h1>
+<br><br>
+{{$data->nama_karyawan}}
 @endsection

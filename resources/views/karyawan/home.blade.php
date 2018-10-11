@@ -19,25 +19,46 @@
 @endsection
 
 @section('content')
-     <!-- Main row -->
-     <div class="row">
-       <div class="col-md-12">
-           
-            {{-- {{$data}} --}}
-
-            @foreach($data as $pegawai)
-              {{$pegawai->no}}. 
-              {{$pegawai->nama_karyawan}} 
-              | {{$pegawai->telp}} <br>
+<br><br>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Tabel Karyawan</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body no-padding">
+        <table class="table table-striped">
+            <tr>
+                <th style="width: 10px">No</th>
+                <th>Nama</th>
+                <th>Alamat</th>
+                <th>Nomor Telephone</th>
+                <th>Jabatan</th>
+                <th>Action</th>
+            </tr>
+            @foreach ($data as $kar)
+            <tr> 
+                <td>{{$kar->no}}</td>
+                <td>
+                    <a href="/karyawan/{{ $kar->no }}">
+                    {{$kar->nama_karyawan}}
+                    </a>
+                </td>
+                <td>{{$kar->alamat}}</td>
+                <td>{{$kar->telp}}</td>
+                <td>{{$kar->jabatan}}</td>
+                <td>
+                    <a href="/karyawan/edit/{{ $kar->no }}">
+                        <button class="btn-primary">Edit</button>
+                    </a>
+                    <a href="/karyawan/delete/{{ $kar->no }}">
+                    <button class="btn-warning">Delete</button>
+                    </a>
+                </td>
+            </tr>    
             @endforeach
-
-            {{--  {{$data->EMPLOYEE_ID}}. 
-              {{$data->FIRST_NAME}} {{$data->LAST_NAME}} 
-              | {{$data->SALARY}} <br>  --}}
-
-              {{--  {{ $data }}  --}}
-       </div>                 
-     </div>
-     <!-- /.row (main row) -->
+            
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
 @endsection
-
