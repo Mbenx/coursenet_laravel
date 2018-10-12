@@ -2,29 +2,23 @@
 
 
 @section('title')
-<title>Web Course | Departement</title>
+<title>Web Course | Jabatan</title>
 @endsection
 
 @section('content-header')
 <section class="content-header">
     <h1>
         Dashboard
-        <small>Departement</small>
+        <small>Jabatan</small>
     </h1>
     <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-        <li class="active">Departement</li>
+        <li class="active">Jabatan</li>
     </ol>
 </section>
 @endsection
 
 @section('content')
-     <!-- Main row -->
-     <div class="row">
-       <div class="col-md-12">
-           
-       </div>                 
-     </div>
-     <!-- /.row (main row) -->
+<br><br>
+{{$data->nama_jabatan}}
 @endsection
-

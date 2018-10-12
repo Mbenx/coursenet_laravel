@@ -4,7 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-class InventoriController extends Controller
+
+class DepartemenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,8 +14,8 @@ class InventoriController extends Controller
      */
     public function index()
     {
-        $data = DB::table('inventoris')->get();
-        return view('inventori/home',['data' => $data]);
+        $data = DB::table('departemens')->get();
+        return view('departemen/home',['data' => $data]);
     }
 
     /**
@@ -46,8 +47,8 @@ class InventoriController extends Controller
      */
     public function show($id)
     {
-        $data = DB::table('inventoris')->where('id', $id)->first();
-        return view('inventori/show',['data' => $data]);
+        $data = DB::table('departemens')->where('id', $id)->first();
+        return view('departemen/show',['data' => $data]);
     }
 
     /**
@@ -58,11 +59,11 @@ class InventoriController extends Controller
      */
     public function edit($id)
     {
-        $data = DB::table('inventoris')->where('id', $id)->first();
+        $data = DB::table('departemens')->where('id', $id)->first();
 
         //dd($pegawai);
 
-        return view('inventori/edit',['data' => $data]);
+        return view('departemen/edit',['data' => $data]);
     }
 
     /**

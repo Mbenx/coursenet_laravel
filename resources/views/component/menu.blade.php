@@ -20,8 +20,8 @@
                 </a>
             </li>
             <li>
-                <a href="/departement">
-                    <i class="fa fa-th"></i> <span>Departement</span>
+                <a href="/departemen">
+                    <i class="fa fa-th"></i> <span>Departemen</span>
                 </a>
             </li>
             <li>

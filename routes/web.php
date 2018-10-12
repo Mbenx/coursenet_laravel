@@ -28,7 +28,6 @@
 // });
 
 Route::get('/', 'HomeController@index');
-//Route::get('/{id}/{name}', 'HomeController@show');
 
 Route::get('/karyawan', 'KaryawanController@index');
 Route::get('/karyawan/{id}', 'KaryawanController@show');
@@ -36,7 +35,21 @@ Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
 Route::get('/karyawan/delete/{id}', 'KaryawanController@delete');
 
 Route::get('/jabatan', 'JabatanController@index');
-Route::get('/departement', 'DepartementController@index');
+Route::get('/jabatan/{id}', 'JabatanController@show');
+Route::get('/jabatan/edit/{id}', 'JabatanController@edit');
+Route::get('/jabatan/delete/{id}', 'JabatanController@delete');
+
+Route::get('/departemen', 'DepartemenController@index');
+Route::get('/departemen/{id}', 'DepartemenController@show');
+Route::get('/departemen/edit/{id}', 'DepartemenController@edit');
+Route::get('/departemen/delete/{id}', 'DepartemenController@delete');
 
 Route::get('/arsip','ArsipController@index');
+Route::get('/arsip/{id}', 'ArsipController@show');
+Route::get('/arsip/edit/{id}', 'ArsipController@edit');
+Route::get('/arsip/delete/{id}', 'ArsipController@delete');
+
 Route::get('/inventori','InventoriController@index');
+Route::get('/inventori/{id}', 'InventoriController@show');
+Route::get('/inventori/edit/{id}', 'InventoriController@edit');
+Route::get('/inventori/delete/{id}', 'InventoriController@delete');

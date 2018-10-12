@@ -19,12 +19,41 @@
 @endsection
 
 @section('content')
-     <!-- Main row -->
-     <div class="row">
-       <div class="col-md-12">
-           
-       </div>                 
-     </div>
-     <!-- /.row (main row) -->
+<br><br>
+<div class="box">
+    <div class="box-header">
+        <h3 class="box-title">Tabel jabatan</h3>
+    </div>
+    <!-- /.box-header -->
+    <div class="box-body no-padding">
+        <table class="table table-striped">
+            <tr>
+                <th style="width: 10px">id</th>
+                <th>Nama</th>
+                <th>Action</th>
+            </tr>
+            @foreach ($data as $d)
+            <tr>
+                <td>{{$d->id}}</td>
+                <td>
+                    <a href="/jabatan/{{ $d->id }}">
+                        {{$d->nama_jabatan}}
+                    </a>
+                </td>
+                <td>
+                    <a href="/jabatan/edit/{{ $d->id }}">
+                        <button class="btn-primary">Edit</button>
+                    </a>
+                    <a href="/jabatan/delete/{{ $d->id }}">
+                        <button class="btn-warning">Delete</button>
+                    </a>
+                </td>
+            </tr>
+            @endforeach
+
+        </table>
+    </div>
+    <!-- /.box-body -->
+</div>
 @endsection
 

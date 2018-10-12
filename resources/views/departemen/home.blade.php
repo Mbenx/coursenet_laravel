@@ -2,27 +2,27 @@
 
 
 @section('title')
-<title>Web Course | Arsip</title>
+<title>Web Course | Departemen</title>
 @endsection
 
 @section('content-header')
 <section class="content-header">
     <h1>
         Dashboard
-        <small>Arsip</small>
+        <small>Departemen</small>
     </h1>
-
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active">Arsip</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+        <li class="active">Departemen</li>
     </ol>
 </section>
 @endsection
+
 @section('content')
 <br><br>
 <div class="box">
     <div class="box-header">
-        <h3 class="box-title">Tabel arsip</h3>
+        <h3 class="box-title">Tabel Departemen</h3>
     </div>
     <!-- /.box-header -->
     <div class="box-body no-padding">
@@ -36,15 +36,15 @@
             <tr>
                 <td>{{$d->id}}</td>
                 <td>
-                    <a href="/arsip/{{ $d->id }}">
-                        {{$d->nama_arsip}}
+                    <a href="/departemen/{{ $d->id }}">
+                        {{$d->nama_departemen}}
                     </a>
                 </td>
                 <td>
-                    <a href="/arsip/edit/{{ $d->id }}">
+                    <a href="/departemen/edit/{{ $d->id }}">
                         <button class="btn-primary">Edit</button>
                     </a>
-                    <a href="/arsip/delete/{{ $d->id }}">
+                    <a href="/departemen/delete/{{ $d->id }}">
                         <button class="btn-warning">Delete</button>
                     </a>
                 </td>

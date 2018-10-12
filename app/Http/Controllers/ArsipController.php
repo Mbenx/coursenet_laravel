@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use DB;
 
 class ArsipController extends Controller
 {
@@ -13,7 +14,8 @@ class ArsipController extends Controller
      */
     public function index()
     {
-        return view('arsip/home');
+        $data = DB::table('arsips')->get();
+        return view('arsip/home',['data' => $data]);
     }
 
     /**
@@ -45,7 +47,8 @@ class ArsipController extends Controller
      */
     public function show($id)
     {
-        //
+        $data = DB::table('arsips')->where('id', $id)->first();
+        return view('arsip/show',['data' => $data]);
     }
 
     /**
@@ -56,7 +59,11 @@ class ArsipController extends Controller
      */
     public function edit($id)
     {
-        //
+        $data = DB::table('arsips')->where('id', $id)->first();
+
+        //dd($pegawai);
+
+        return view('arsip/edit',['data' => $data]);
     }
 
     /**
