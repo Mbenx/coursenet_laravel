@@ -33,6 +33,9 @@ Route::get('/karyawan', 'KaryawanController@index');
 Route::get('/karyawan/{id}', 'KaryawanController@show');
 Route::get('/karyawan/edit/{id}', 'KaryawanController@edit');
 Route::get('/karyawan/delete/{id}', 'KaryawanController@delete');
+Route::get('/karyawan/create', 'KaryawanController@create');
+Route::post('/karyawan/store', 'KaryawanController@store');
+Route::put('/karyawan/update', 'KaryawanController@update');
 
 Route::get('/jabatan', 'JabatanController@index');
 Route::get('/jabatan/{id}', 'JabatanController@show');

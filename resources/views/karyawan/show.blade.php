@@ -20,5 +20,5 @@
 
 @section('content')
 <br><br>
-{{$data->nama_karyawan}}
+
 @endsection
