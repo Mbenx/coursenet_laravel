@@ -20,9 +20,35 @@
 
 @section('content')
 <br><br>
-{{-- @foreach ($data as $a)
-{{$a->nama_Jabatan}}    
-@endforeach --}}
+<div class="col-md-6">
+    <!-- general form elements -->
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Edit jabatan</h3>
+        </div>
+        <!-- /.box-header -->
+        <!-- form start -->
+        <form role="form" action="/jabatan/update" method="POST">
+            <div class="box-body">
+                <div class="form-group">
+                    <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                    <input type="hidden" class="form-control" name="id" value="{{ $data->id}}" />
+                    <input type="hidden" name="_method" value="PUT" />
+                </div>
+                <div class="form-group">
+                    <label>Nama jabatan</label>
+                    <input type="text" class="form-control" name="nama_jabatan" value="{{ $data->nama_jabatan}}"
+                        placeholder="Nama jabatan">
+                </div>
+            </div>
+            <!-- /.box-body -->
 
-{{ $data->nama_jabatan}}
+            <div class="box-footer">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+    <!-- /.box -->
+
+</div>
 @endsection

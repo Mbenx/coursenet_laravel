@@ -95,17 +95,17 @@ class KaryawanController extends Controller
     }
 
     public function create(){
-        //return view('karyawan/create');
+        return view('karyawan/create');
     }
 
-    public function store(){
+    public function store(Request $req){
         // Insert use query builder
-        // DB::table('karyawan')->insert(
-        //     ['nama_karyawan' => 'yusup bin sanusi',
-        //      'alamat' => 'kalijodo',
-        //      'telp' => '085672',
-        //      'jabatan' => 'juragan kost']
-        // );
+        DB::table('karyawan')->insert(
+            ['nama_karyawan' => $req->nama_karyawan,
+             'alamat' => $req->alamat,
+             'telp' => $req->telp,
+             'jabatan' => $req->jabatan]
+        );
 
         
         
@@ -126,5 +126,7 @@ class KaryawanController extends Controller
         // 'telp' => '012892109821',
         // 'jabatan' => 'programmer',
         // ]);
+
+        return redirect('/karyawan');
     }
 }

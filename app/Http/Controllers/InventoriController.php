@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Inventori;
 class InventoriController extends Controller
 {
     /**
@@ -24,7 +25,7 @@ class InventoriController extends Controller
      */
     public function create()
     {
-        //
+        return view('inventori/create');
     }
 
     /**
@@ -35,7 +36,12 @@ class InventoriController extends Controller
      */
     public function store(Request $request)
     {
-        //
+         // mass assigment
+         Inventori::create([
+            'nama_inventori' => $request->nama_inventori,
+            ]);
+    
+            return redirect('/inventori');
     }
 
     /**
@@ -72,9 +78,14 @@ class InventoriController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Inventori::where('id','=',$request->id)
+        ->update([
+            'nama_inventori' => $request->nama_inventori
+        ]);
+
+        return redirect('/inventori');
     }
 
     /**

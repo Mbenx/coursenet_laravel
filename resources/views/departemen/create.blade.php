@@ -2,18 +2,18 @@
 
 
 @section('title')
-<title>Web Course | Arsip</title>
+<title>Web Course | departemen</title>
 @endsection
 
 @section('content-header')
 <section class="content-header">
     <h1>
-        Arsip
-        <small>Edit</small>
+        departemen
+        <small>Create</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Arsip</a></li>
-        <li class="active">Edit</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> departemen</a></li>
+        <li class="active">Create</li>
     </ol>
 </section>
 @endsection
@@ -24,21 +24,20 @@
     <!-- general form elements -->
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Edit arsip</h3>
+            <h3 class="box-title">Create departemen</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/arsip/update" method="POST">
+    <form role="form" action="/departemen/store" method="POST">
             <div class="box-body">
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <input type="hidden" class="form-control" name="id" value="{{ $data->id}}" />
-                    <input type="hidden" name="_method" value="PUT" />
+                    <input type="hidden" class="form-control" name="no"/>
+                    <input type="hidden" name="_method" value="POST"/>
                 </div>
                 <div class="form-group">
-                    <label>Nama arsip</label>
-                    <input type="text" class="form-control" name="nama_arsip" value="{{ $data->nama_arsip}}"
-                        placeholder="Nama arsip">
+                    <label>Nama departemen</label>
+                    <input type="text" class="form-control" name="nama_departemen" placeholder="Nama departemen">
                 </div>
             </div>
             <!-- /.box-body -->

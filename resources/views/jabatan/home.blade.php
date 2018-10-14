@@ -23,6 +23,9 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Tabel jabatan</h3>
+        <a href="/jabatan/create">
+            <button type="button" class="btn btn-primary pull-right">+ Create New</button>
+        </a>
     </div>
     <!-- /.box-header -->
     <div class="box-body no-padding">

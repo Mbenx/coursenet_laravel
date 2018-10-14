@@ -23,6 +23,9 @@
 <div class="box">
     <div class="box-header">
         <h3 class="box-title">Tabel Karyawan</h3>
+        <a href="/karyawan/create">
+        <button type="button" class="btn btn-primary pull-right">+ Create New</button>
+        </a>
     </div>
     <!-- /.box-header -->
     <div class="box-body no-padding">
@@ -36,11 +39,11 @@
                 <th>Action</th>
             </tr>
             @foreach ($data as $kar)
-            <tr> 
+            <tr>
                 <td>{{$kar->no}}</td>
                 <td>
                     <a href="/karyawan/{{ $kar->no }}">
-                    {{$kar->nama_karyawan}}
+                        {{$kar->nama_karyawan}}
                     </a>
                 </td>
                 <td>{{$kar->alamat}}</td>
@@ -51,12 +54,12 @@
                         <button class="btn-primary">Edit</button>
                     </a>
                     <a href="/karyawan/delete/{{ $kar->no }}">
-                    <button class="btn-warning">Delete</button>
+                        <button class="btn-warning">Delete</button>
                     </a>
                 </td>
-            </tr>    
+            </tr>
             @endforeach
-            
+
         </table>
     </div>
     <!-- /.box-body -->

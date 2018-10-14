@@ -2,18 +2,18 @@
 
 
 @section('title')
-<title>Web Course | Arsip</title>
+<title>Web Course | arsip</title>
 @endsection
 
 @section('content-header')
 <section class="content-header">
     <h1>
-        Arsip
-        <small>Edit</small>
+        arsip
+        <small>Create</small>
     </h1>
     <ol class="breadcrumb">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Arsip</a></li>
-        <li class="active">Edit</li>
+        <li><a href="#"><i class="fa fa-dashboard"></i> arsip</a></li>
+        <li class="active">Create</li>
     </ol>
 </section>
 @endsection
@@ -24,21 +24,20 @@
     <!-- general form elements -->
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Edit arsip</h3>
+            <h3 class="box-title">Create arsip</h3>
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-        <form role="form" action="/arsip/update" method="POST">
+    <form role="form" action="/arsip/store" method="POST">
             <div class="box-body">
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <input type="hidden" class="form-control" name="id" value="{{ $data->id}}" />
-                    <input type="hidden" name="_method" value="PUT" />
+                    <input type="hidden" class="form-control" name="no"/>
+                    <input type="hidden" name="_method" value="POST"/>
                 </div>
                 <div class="form-group">
                     <label>Nama arsip</label>
-                    <input type="text" class="form-control" name="nama_arsip" value="{{ $data->nama_arsip}}"
-                        placeholder="Nama arsip">
+                    <input type="text" class="form-control" name="nama_arsip" placeholder="Nama arsip">
                 </div>
             </div>
             <!-- /.box-body -->

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Departemen;
 
 class DepartemenController extends Controller
 {
@@ -25,7 +26,7 @@ class DepartemenController extends Controller
      */
     public function create()
     {
-        //
+        return view('departemen/create');
     }
 
     /**
@@ -34,9 +35,15 @@ class DepartemenController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+        // Eloquent
+        // Store biasa
+        $store = new Departemen;
+        $store->nama_departemen = $req->nama_departemen;
+        $store->save();
+
+        return redirect('/departemen');
     }
 
     /**
@@ -73,9 +80,15 @@ class DepartemenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $req)
     {
-        //
+        // Eloquent
+        // Update biasa
+        $update = Departemen::where('id','=',$req->id)->first();
+        $update->nama_departemen = $req->nama_departemen;
+        $update->save();
+
+        return redirect('/departemen');
     }
 
     /**

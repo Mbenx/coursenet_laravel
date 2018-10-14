@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Arsip;
 
 class ArsipController extends Controller
 {
@@ -25,7 +26,7 @@ class ArsipController extends Controller
      */
     public function create()
     {
-        //
+        return view('arsip/create');
     }
 
     /**
@@ -36,7 +37,12 @@ class ArsipController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // mass assigment
+        Arsip::create([
+            'nama_arsip' => $request->nama_arsip,
+            ]);
+    
+            return redirect('/arsip');
     }
 
     /**
@@ -73,9 +79,14 @@ class ArsipController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        Arsip::where('id','=',$request->id)
+        ->update([
+            'nama_arsip' => $request->nama_arsip
+        ]);
+
+        return redirect('/arsip');
     }
 
     /**
