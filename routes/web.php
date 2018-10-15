@@ -82,7 +82,7 @@ Route::put('/inventori/update', 'InventoriController@update');
 // Route Delete
 Route::get('/karyawan/delete/{id}', 'KaryawanController@delete');
 
-Route::get('/jabatan/delete/{id}', 'JabatanController@delete');
+Route::delete('/jabatan/{id}', 'JabatanController@destroy');
 
 Route::get('/departemen/delete/{id}', 'DepartemenController@delete');
 

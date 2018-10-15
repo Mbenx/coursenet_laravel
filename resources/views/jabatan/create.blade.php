@@ -28,16 +28,39 @@
         </div>
         <!-- /.box-header -->
         <!-- form start -->
-    <form role="form" action="/jabatan/store" method="POST">
+
+
+        {{-- @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+        @endif --}}
+
+        <form role="form" action="/jabatan/store" method="POST">
             <div class="box-body">
                 <div class="form-group">
                     <input type="hidden" name="_token" value="{{ csrf_token() }}" />
-                    <input type="hidden" class="form-control" name="no"/>
-                    <input type="hidden" name="_method" value="POST"/>
+                    <input type="hidden" class="form-control" name="no" />
+                    <input type="hidden" name="_method" value="POST" />
                 </div>
                 <div class="form-group">
                     <label>Nama jabatan</label>
-                    <input type="text" class="form-control" name="nama_jabatan" placeholder="Nama jabatan">
+                    <input type="text" class="form-control" name="nama_jabatan" value="{{ old('nama_jabatan') }}"
+                        placeholder="Nama jabatan">
+                    
+                    {{-- validasinya disini --}}
+                    @if($errors->has('nama_jabatan'))
+                    <div class="alert alert-danger">
+                        <ul>
+                            <li>{{ $errors->first('nama_jabatan') }}</li>
+                        </ul>
+                    </div>
+                    @endif
+
                 </div>
             </div>
             <!-- /.box-body -->

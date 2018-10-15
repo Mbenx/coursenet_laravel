@@ -3,7 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+// for query builder
 use DB;
+
+// for ORM
 use App\Jabatan;
 
 class JabatanController extends Controller
@@ -15,7 +18,12 @@ class JabatanController extends Controller
      */
     public function index()
     {
-        $data = DB::table('jabatans')->get();
+        // menampilkan data ready
+        $data = Jabatan::all();
+
+        // menampilkan data ready dan yg sudah di softDelete
+        // $data = Jabatan::withTrashed()->get();      
+        // $data = DB::table('jabatans')->get();
         return view('jabatan/home',['data' => $data]);
     }
 
@@ -37,6 +45,11 @@ class JabatanController extends Controller
      */
     public function store(Request $request)
     {
+        // validation
+        $validatedData = $request->validate([
+            'nama_jabatan' => 'required|min:5|max:20',
+        ]);
+        
         // mass assigment
         Jabatan::create([
         'nama_jabatan' => $request->nama_jabatan,
@@ -67,7 +80,9 @@ class JabatanController extends Controller
     {
         $data = DB::table('jabatans')->where('id', $id)->first();
 
-        //dd($pegawai);
+        //$current = Carbon::now();
+
+        //dd($current);
 
         return view('jabatan/edit',['data' => $data]);
     }
@@ -97,6 +112,13 @@ class JabatanController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // delete biasa & softdeletes
+        $data = Jabatan::where('id','=',$id);
+        $data->delete();
+
+        // menghilangkan data dalam DB di setingan Softdelete
+        //$data->forceDelete();
+
+        return redirect('/jabatan');        
     }
 }

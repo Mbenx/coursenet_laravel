@@ -4,8 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-//if use ORM 
-use App\Karyawan;
 
 class KaryawanController extends Controller
 {

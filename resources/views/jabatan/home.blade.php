@@ -45,11 +45,13 @@
                 </td>
                 <td>
                     <a href="/jabatan/edit/{{ $d->id }}">
-                        <button class="btn-primary">Edit</button>
+                        <button type="submit" class="btn-primary">Edit</button>
                     </a>
-                    <a href="/jabatan/delete/{{ $d->id }}">
-                        <button class="btn-warning">Delete</button>
-                    </a>
+                    <form action="/jabatan/{{ $d->id }}" method="post">
+                        <input type="hidden" name="_token" value="{{ csrf_token() }}" />
+                        <input type="hidden" name="_method" value="DELETE" />
+                        <button type="submit" class="btn-warning">Delete</button>
+                    </form>
                 </td>
             </tr>
             @endforeach
@@ -59,4 +61,3 @@
     <!-- /.box-body -->
 </div>
 @endsection
-
