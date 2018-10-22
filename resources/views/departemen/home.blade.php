@@ -40,7 +40,7 @@
                 <td>{{$d->id}}</td>
                 <td>
                     <a href="/departemen/{{ $d->id }}">
-                        {{$d->nama_departemen}}
+                        {{$d->departement_name}}
                     </a>
                 </td>
                 <td>

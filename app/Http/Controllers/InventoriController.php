@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use DB;
 use App\Inventori;
 class InventoriController extends Controller
 {
@@ -14,7 +13,7 @@ class InventoriController extends Controller
      */
     public function index()
     {
-        $data = DB::table('inventoris')->get();
+        $data = Inventori::all();
         return view('inventori/home',['data' => $data]);
     }
 
@@ -52,7 +51,10 @@ class InventoriController extends Controller
      */
     public function show($id)
     {
-        $data = DB::table('inventoris')->where('id', $id)->first();
+        $data = Inventori::where('id','=',$id)->first();
+        if(!$data){
+            abort(404);
+        }
         return view('inventori/show',['data' => $data]);
     }
 

@@ -34,26 +34,28 @@
                 <th style="width: 10px">No</th>
                 <th>Nama</th>
                 <th>Alamat</th>
+                <th>E-Mail</th>
                 <th>Nomor Telephone</th>
                 <th>Jabatan</th>
                 <th>Action</th>
             </tr>
             @foreach ($data as $kar)
             <tr>
-                <td>{{$kar->no}}</td>
+                <td>{{$kar->id}}</td>
                 <td>
-                    <a href="/karyawan/{{ $kar->no }}">
-                        {{$kar->nama_karyawan}}
+                    <a href="/karyawan/{{ $kar->id }}">
+                        {{$kar->employee_name}}
                     </a>
                 </td>
-                <td>{{$kar->alamat}}</td>
-                <td>{{$kar->telp}}</td>
-                <td>{{$kar->jabatan}}</td>
+                <td>{{$kar->address}}</td>
+                <td>{{$kar->email}}</td>
+                <td>{{$kar->phone}}</td>
+                <td>{{$kar->position->position_name}}</td>
                 <td>
-                    <a href="/karyawan/edit/{{ $kar->no }}">
+                    <a href="/karyawan/edit/{{ $kar->id }}">
                         <button class="btn-primary">Edit</button>
                     </a>
-                    <a href="/karyawan/delete/{{ $kar->no }}">
+                    <a href="/karyawan/delete/{{ $kar->id }}">
                         <button class="btn-warning">Delete</button>
                     </a>
                 </td>

@@ -33,6 +33,7 @@
             <tr>
                 <th style="width: 10px">id</th>
                 <th>Nama</th>
+                <th>Nama Arsip</th>
                 <th>Action</th>
             </tr>
             @foreach ($data as $d)
@@ -40,7 +41,12 @@
                 <td>{{$d->id}}</td>
                 <td>
                     <a href="/inventori/{{ $d->id }}">
-                        {{$d->nama_inventori}}
+                        {{$d->inventori_name}}
+                    </a>
+                </td>
+                <td>
+                    <a href="/arsip/{{ $d->archive->id }}">
+                        {{$d->archive->archives_name}}
                     </a>
                 </td>
                 <td>

@@ -20,5 +20,11 @@
 
 @section('content')
 <br><br>
-{{$data->nama_departemen}}
+{{$data->departement_name}}
+
+<ul>
+    @foreach ($data->position as $d)
+        <li> {{$d->position_name}} </li>
+    @endforeach
+</ul>
 @endsection

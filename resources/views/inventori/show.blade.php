@@ -20,5 +20,14 @@
 
 @section('content')
 <br><br>
-{{$data->nama_inventori}}
+{{$data->inventori_name}}
+
+<h3>Data Pengguna</h3>
+<ul>
+@foreach ($data->employee as $d)
+    <li>
+        {{$d->employee_name}}
+    </li>
+@endforeach
+</ul>
 @endsection

@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use DB;
 
 // for ORM
-use App\Jabatan;
+use App\Position;
 
 class JabatanController extends Controller
 {
@@ -19,7 +19,7 @@ class JabatanController extends Controller
     public function index()
     {
         // menampilkan data ready
-        $data = Jabatan::all();
+        $data = Position::all();
 
         // menampilkan data ready dan yg sudah di softDelete
         // $data = Jabatan::withTrashed()->get();      

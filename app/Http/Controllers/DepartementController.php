@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-use App\Departemen;
+use App\Departement;
 
-class DepartemenController extends Controller
+class DepartementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,7 +15,7 @@ class DepartemenController extends Controller
      */
     public function index()
     {
-        $data = DB::table('departemens')->get();
+        $data = Departement::all();
         return view('departemen/home',['data' => $data]);
     }
 
@@ -54,7 +54,11 @@ class DepartemenController extends Controller
      */
     public function show($id)
     {
-        $data = DB::table('departemens')->where('id', $id)->first();
+        $data = Departement::where('id','=',$id)->first();
+        if(!$data){
+            abort(404);
+        }
+        //dd($data);
         return view('departemen/show',['data' => $data]);
     }
 

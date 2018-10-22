@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
+use App\Employee;
 
 class KaryawanController extends Controller
 {
@@ -23,7 +24,7 @@ class KaryawanController extends Controller
         // ->get();
 
         // Eloquent
-        $pegawai = Karyawan::all();
+        $pegawai = Employee::all();
 
         //dd($pegawai);
 
@@ -31,57 +32,35 @@ class KaryawanController extends Controller
     }
 
     public function show($id){
-        // Query Builder
-        //$pegawai = DB::table('karyawan')->where('no', $id)->first();
-        
-        // Eloquent
-        $pegawai = Karyawan::where('no','=',$id)->first();
-        if(!$pegawai){
+        $data = Employee::where('id','=',$id)->first();
+        if(!$data){
             abort(404);
         }
-        return view('karyawan/show',['data' => $pegawai]);
+        return view('karyawan/show',['data' => $data]);
     }
 
     public function edit($id){
-
-        // $pegawai = DB::table('karyawan')
-        // ->select('no','nama_karyawan','alamat','telp','jabatan')
-        // ->where('no','=',$id)
-        // ->get();
-
-        $pegawai = DB::table('karyawan')->where('no', $id)->first();
-
-        //dd($pegawai);
-
-        return view('karyawan/edit',['data' => $pegawai]);
+        $data = Employee::where('id','=',$id)->first();
+        if(!$data){
+            abort(404);
+        }
+        return view('karyawan/edit',['data' => $data]);        
     }
 
     public function update(Request $request){
-        // use Query Builder
-        // DB::table('karyawan')
-        //     ->where('no', $id)
-        //     ->update(['nama_karyawan' => 'Sanusi bin Ucok']);
+        $filename = $request->employee_name.time().'.png';
+        $request->file('featured_img')->storeAs('img/employee',$filename);
+        //dd('berhasil');
 
-        // Eloquent
-
-        // Update biasa
-        // $karyawan = Karyawan::where('no', $id)->first();
-        // $karyawan->nama_karyawan = 'Herlambang';
-        // $karyawan->alamat = 'skskssj';
-        // $karyawan->telp = '082728290';
-        // $karyawan->jabatan = '1';
-        // $karyawan->save();
-
-        // Update Mass Asigment
-
-        //dd($request);
-
-        Karyawan::where('no', $request->no)
+        Employee::where('id', $request->id)
         ->update([
-            'nama_karyawan' => $request->nama_karyawan,
-            'alamat' => $request->alamat,
-            'telp' => $request->telp,
-            'jabatan' => $request->jabatan
+            'identity_number' => $request->identity_number,
+            'employee_name' => $request->employee_name,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'picture' => $filename,
+            'position_id' => $request->position_id
         ]);
 
         return redirect('/karyawan');

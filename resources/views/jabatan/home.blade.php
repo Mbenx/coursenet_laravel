@@ -40,7 +40,7 @@
                 <td>{{$d->id}}</td>
                 <td>
                     <a href="/jabatan/{{ $d->id }}">
-                        {{$d->nama_jabatan}}
+                        {{$d->position_name}}
                     </a>
                 </td>
                 <td>

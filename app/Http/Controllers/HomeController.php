@@ -2,28 +2,27 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Controllers\Controller;
+use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    
-    public function index()
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-            //$unescaped = '<script> alert("Hello")</script>';
-            $unescaped = '<H1> PARAMETER UNESCAPE</H1>';
-            
-            $text = "ini halaman home";
-            return view('home/home', ['data' => $text,'unescaped'=>$unescaped]);     
+        $this->middleware('auth');
     }
 
-    public function show($id,$nama)
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index()
     {
-        if($id > 5){
-            $text = $nama."lebih dari 5";
-            return view('home/home', ['data' => $text]);
-        } else {
-            $text = $nama."kurang dari 5";
-            return view('home/home', ['data' => $text]);
-        }
+        return view('home');
     }
 }

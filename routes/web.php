@@ -53,8 +53,8 @@ Route::get('/karyawan/{id}', 'KaryawanController@show');
 Route::get('/jabatan', 'JabatanController@index');
 Route::get('/jabatan/{id}', 'JabatanController@show');
 
-Route::get('/departemen', 'DepartemenController@index');
-Route::get('/departemen/{id}', 'DepartemenController@show');
+Route::get('/departemen', 'DepartementController@index');
+Route::get('/departemen/{id}', 'DepartementController@show');
 
 Route::get('/arsip','ArsipController@index');
 Route::get('/arsip/{id}', 'ArsipController@show');
@@ -89,3 +89,7 @@ Route::get('/departemen/delete/{id}', 'DepartemenController@delete');
 Route::get('/arsip/delete/{id}', 'ArsipController@delete');
 
 Route::get('/inventori/delete/{id}', 'InventoriController@delete');
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
