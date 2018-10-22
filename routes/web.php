@@ -36,8 +36,8 @@ Route::post('/karyawan/store', 'KaryawanController@store');
 Route::get('/jabatan/create', 'JabatanController@create');
 Route::post('/jabatan/store', 'JabatanController@store');
 
-Route::get('/departemen/create', 'DepartemenController@create');
-Route::post('/departemen/store', 'DepartemenController@store');
+Route::get('/departemen/create', 'DepartementController@create');
+Route::post('/departemen/store', 'DepartementController@store');
 
 Route::get('/arsip/create', 'ArsipController@create');
 Route::post('/arsip/store', 'ArsipController@store');
@@ -47,19 +47,19 @@ Route::post('/inventori/store', 'InventoriController@store');
 
 
 // route Get data
-Route::get('/karyawan', 'KaryawanController@index');
+Route::get('/karyawan', 'KaryawanController@index')->name('karyawan')->middleware('auth');
 Route::get('/karyawan/{id}', 'KaryawanController@show');
 
 Route::get('/jabatan', 'JabatanController@index');
 Route::get('/jabatan/{id}', 'JabatanController@show');
 
-Route::get('/departemen', 'DepartementController@index');
+Route::get('/departemen', 'DepartementController@index')->middleware('auth');
 Route::get('/departemen/{id}', 'DepartementController@show');
 
-Route::get('/arsip','ArsipController@index');
+Route::get('/arsip','ArsipController@index')->middleware('auth');
 Route::get('/arsip/{id}', 'ArsipController@show');
 
-Route::get('/inventori','InventoriController@index');
+Route::get('/inventori','InventoriController@index')->middleware('auth');
 Route::get('/inventori/{id}', 'InventoriController@show');
 
 // Route Edit data
@@ -69,8 +69,8 @@ Route::put('/karyawan/update', 'KaryawanController@update');
 Route::get('/jabatan/edit/{id}', 'JabatanController@edit');
 Route::put('/jabatan/update', 'JabatanController@update');
 
-Route::get('/departemen/edit/{id}', 'DepartemenController@edit');
-Route::put('/departemen/update', 'DepartemenController@update');
+Route::get('/departemen/edit/{id}', 'DepartementController@edit');
+Route::put('/departemen/update', 'DepartementController@update');
 
 Route::get('/arsip/edit/{id}', 'ArsipController@edit');
 Route::put('/arsip/update', 'ArsipController@update');
@@ -84,7 +84,7 @@ Route::get('/karyawan/delete/{id}', 'KaryawanController@delete');
 
 Route::delete('/jabatan/{id}', 'JabatanController@destroy');
 
-Route::get('/departemen/delete/{id}', 'DepartemenController@delete');
+Route::get('/departemen/delete/{id}', 'DepartementController@delete');
 
 Route::get('/arsip/delete/{id}', 'ArsipController@delete');
 

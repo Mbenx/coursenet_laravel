@@ -21,5 +21,5 @@
 @section('content')
 <br><br>
 {{$data->employee_name}}
-<img src="{{ asset('storage/app/img/employee/'.$data->picture)}}" alt="">
+<img src="{{ asset('/storage/app/employee/'.$data->picture)}}">
 @endsection

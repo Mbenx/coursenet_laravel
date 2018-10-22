@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Storage;
 
 use Illuminate\Http\Request;
 use DB;
@@ -48,8 +49,8 @@ class KaryawanController extends Controller
     }
 
     public function update(Request $request){
-        $filename = $request->employee_name.time().'.png';
-        $request->file('featured_img')->storeAs('img/employee',$filename);
+        $filename = $request->id.time().'.png';
+        $request->file('featured_img')->storeAs('employee',$filename);
         //dd('berhasil');
 
         Employee::where('id', $request->id)

@@ -222,7 +222,7 @@
                 <li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="dist/img/Course-Net-Logo-Final-01.png" class="user-image" alt="User Image">
-                        <span class="hidden-xs">Course Administrator</span>
+                        <span class="hidden-xs">Admin Course</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
@@ -255,7 +255,14 @@
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
                             <div class="pull-right">
-                                <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                                <a href="{{ route('logout') }}" onclick="event.preventDefault();
+                                             document.getElementById('logout-form').submit();">
+                                    Logout
+                                </a>
+
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
                             </div>
                         </li>
                     </ul>
